@@ -85,3 +85,41 @@
 .animate-pulse-slow {
   animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Custom Scrollbar Styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.5) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary) / 0.5);
+  border-radius: 3px;
+  border: none;
+}
+
+/* Swiper Pagination Styles */
+.swiper-pagination-bullet {
+  background-color: rgba(168, 85, 247, 0.5) !important; /* purple-500/50 */
+  opacity: 1 !important; /* Ensure override */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(168, 85, 247) !important; /* purple-500 */
+}
+
+/* Swiper Navigation Arrow Styles - Removed */
+
+/* Hide arrows when disabled (e.g., if loop=false and at ends) */
+.swiper-button-disabled {
+  opacity: 0.2 !important;
+  cursor: auto !important;
+}

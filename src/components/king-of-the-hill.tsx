@@ -96,7 +96,8 @@ export function KingOfTheHill() {
         {/* Left Column */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-3 mb-2">
@@ -212,7 +213,8 @@ export function KingOfTheHill() {
         {/* Right Column */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="flex items-center gap-2 mb-2">

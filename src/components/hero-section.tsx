@@ -25,10 +25,11 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 mt-14">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mx-auto max-w-2xl text-center"
         >
@@ -61,7 +62,8 @@ export function HeroSection() {
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-3"
         >
