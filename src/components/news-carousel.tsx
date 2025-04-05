@@ -22,27 +22,17 @@ import "swiper/css/navigation";
 const mockNewsImages = [
   {
     id: 1,
-    image: "/placeholder-news-1.png", // Replace with actual paths
+    image: "/placeholder-koth.png", // Replace with actual paths
     link: "#",
   },
   {
     id: 2,
-    image: "/placeholder-news-2.png",
+    image: "/placeholder-koth.png",
     link: "#",
   },
   {
     id: 3,
-    image: "/placeholder-news-3.png",
-    link: "#",
-  },
-  {
-    id: 4,
-    image: "/placeholder-news-4.png",
-    link: "#",
-  },
-  {
-    id: 5,
-    image: "/placeholder-news-5.png",
+    image: "/placeholder-koth.png",
     link: "#",
   },
 ];

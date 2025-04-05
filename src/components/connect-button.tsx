@@ -1,7 +1,7 @@
 "use client";
 
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function ConnectButton() {
@@ -10,8 +10,13 @@ export function ConnectButton() {
   const { disconnect } = useDisconnect();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const formatAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const formatAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
   const handleConnect = (connectorId: string) => {
@@ -26,6 +31,17 @@ export function ConnectButton() {
     disconnect();
     setIsDropdownOpen(false);
   };
+
+  if (!isMounted) {
+    return (
+      <button
+        disabled
+        className="rounded-full bg-purple-600/50 px-4 py-2 text-sm font-medium text-white/70 cursor-wait animate-pulse"
+      >
+        Loading...
+      </button>
+    );
+  }
 
   return (
     <div className="relative z-50">
