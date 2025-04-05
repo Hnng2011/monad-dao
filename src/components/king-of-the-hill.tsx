@@ -71,6 +71,24 @@ const formatAddress = (address: string) => {
   return `${address.slice(0, 5)}...${address.slice(-4)}`;
 };
 
+// Simple SVG Placeholder
+const svgPlaceholder = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <defs>
+      <radialGradient id='grad' cx='50%' cy='50%' r='50%'>
+        <stop offset='0%' stop-color='rgba(168, 85, 247, 0.3)' /> {/* purple-500/30 */}
+        <stop offset='100%' stop-color='rgba(76, 29, 149, 0.5)' /> {/* purple-800/50 */}
+      </radialGradient>
+    </defs>
+    <rect width='100' height='100' fill='url(#grad)' />
+  </svg>`;
+
+const toBase64 = (str: string) =>
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
+
+const dataUrl = `data:image/svg+xml;base64,${toBase64(svgPlaceholder)}`;
+
 export function KingOfTheHill() {
   return (
     <section className="relative py-16 sm:py-24 bg-black/30 backdrop-blur-sm border-y border-purple-500/10">
@@ -148,23 +166,45 @@ export function KingOfTheHill() {
               </div>
             </div>
 
-            {/* Image Block */}
+            {/* Image Block with Animated Shadow and SVG Placeholder */}
             <div className="flex flex-col items-center justify-center">
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-purple-500/20 shadow-xl shadow-purple-900/30">
+              <motion.div
+                className="relative w-full h-full rounded-2xl overflow-hidden border border-purple-500/20 shadow-2xl shadow-purple-600/60 bg-cover bg-center"
+                style={{ backgroundImage: `url("${dataUrl}")` }} // Apply SVG as background
+                // Animate the shadow opacity for a pulsing effect
+                animate={{
+                  // Use CSS variable for shadow color opacity
+                  boxShadow: [
+                    "0 25px 50px -12px hsla(262, 83%, 58%, 0.6)", // shadow-2xl purple-600/60
+                    "0 25px 50px -12px hsla(262, 83%, 58%, 0.8)", // Brighter pulse
+                    "0 25px 50px -12px hsla(262, 83%, 58%, 0.6)", // Back to normal
+                  ],
+                }}
+                transition={{
+                  duration: 2.5, // Speed of the pulse
+                  repeat: Infinity, // Loop forever
+                  repeatType: "loop", // Simple loop
+                  ease: "easeInOut",
+                }}
+              >
+                {/* Image will load on top of the background */}
                 <Image
                   src={kingOfTheHillData.image}
                   alt={`${kingOfTheHillData.name} image`}
                   layout="fill"
                   objectFit="cover"
                   className="animate-pulse-slow"
+                  // Optionally add placeholder='blur' if you have a blurDataURL
                 />
+                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+                {/* Symbol overlay */}
                 <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-lg border border-purple-500/20">
                   <p className="text-xl font-bold text-white tracking-widest">
                     {kingOfTheHillData.symbol.substring(1)}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
