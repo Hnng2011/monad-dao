@@ -3,6 +3,7 @@ import { FeaturedDAOs } from "@/components/featured-daos";
 import { Header } from "@/components/header";
 import { KingOfTheHill } from "@/components/king-of-the-hill";
 import { NewsCarousel } from "@/components/news-carousel";
+import { CallToActionSection } from "@/components/call-to-action-section";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <HeroSection />
         <NewsCarousel />
         <KingOfTheHill />
+        <CallToActionSection />
         <FeaturedDAOs />
       </main>
     </>

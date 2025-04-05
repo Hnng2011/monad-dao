@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[70vh] overflow-hidden bg-black pt-20 pb-8 sm:pt-24 sm:pb-8">
+    <section className="relative min-h-[50vh] overflow-hidden bg-black pt-20 pb-8 sm:pt-24 sm:pb-8">
       {/* Purple gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-black to-black" />
 
@@ -39,24 +39,6 @@ export function HeroSection() {
               Trade Memes
             </span>
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            Pool ETH/SOL to invest and build on behalf of your community. Join
-            the future of decentralized investment.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/create"
-              className="rounded-full bg-purple-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-            >
-              Create Fund
-            </Link>
-            <Link
-              href="/discover"
-              className="rounded-full border border-purple-600 px-8 py-3 text-sm font-semibold text-white hover:bg-purple-950/30"
-            >
-              Discover DAOs
-            </Link>
-          </div>
         </motion.div>
 
         {/* Stats */}
