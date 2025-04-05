@@ -35,7 +35,7 @@ const FEATURED_DAOS = [
 
 export function FeaturedDAOs() {
   return (
-    <section className="relative py-8 sm:py-12">
+    <section className="relative py-8 sm:py-12 mt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <motion.h2
@@ -50,7 +50,7 @@ export function FeaturedDAOs() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-6 text-lg leading-8 text-gray-300"
+            className="mt-4 text-lg leading-8 text-gray-300"
           >
             Join the most innovative DAOs in the ecosystem
           </motion.p>
@@ -59,7 +59,7 @@ export function FeaturedDAOs() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4"
+          className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-6 sm:mt-10 lg:mx-0 lg:max-w-none lg:grid-cols-4"
         >
           {FEATURED_DAOS.map((dao, index) => (
             <motion.div
